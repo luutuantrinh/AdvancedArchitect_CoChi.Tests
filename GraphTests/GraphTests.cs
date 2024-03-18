@@ -28,6 +28,25 @@ namespace AdvancedArchitect_CoChi.Tests.GraphTests
         }
 
         [Fact]
+        public void TestCountConnectedComponents_BFS_Optimize()
+        {
+            // Arrange
+            var graph = new ConnectedComponentGraph(7);
+            graph.AddEdge(1, 2);
+            graph.AddEdge(1, 3);
+            graph.AddEdge(2, 3);
+            graph.AddEdge(5, 6);
+            graph.AddEdge(6, 7);
+            graph.AddEdge(5, 7);
+
+            // Act
+            var result = graph.CountConnectedComponents();
+
+            // Assert
+            Assert.Equal(3, result);
+        }
+
+        [Fact]
         public void TestCountConnectedComponents_WithAllVerticesConnected()
         {
             // Arrange
